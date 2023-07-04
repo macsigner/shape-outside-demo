@@ -4,9 +4,23 @@
     <meta charset="UTF-8">
     <title>Shape outside test</title>
     <style>
+        body {
+            font-size: 1.4em;
+        }
+
+        main {
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        :root {
+            --side-padding: 20px;
+        }
+
         .wrapper {
             position: relative;
             display: flex;
+            flex-direction: column;
             height: var(--wrapper-height, auto);
             min-height: calc(100vh - 40px);
         }
@@ -30,67 +44,103 @@
 
         .text::before {
             float: right;
-            float: left;
             content: '';
             display: block;
             width: 100%;
-            height: var(--wrapper-height, 0);
+            height: var(--wrapper-height, 100%);
             shape-margin: 10px;
             shape-outside: polygon(100% 0%, 100% 100%, 0 100%);
             clip-path: polygon(100% 0%, 100% 100%, 0 100%);
-            shape-outside: polygon(0 0, 100% 0, 0 100%);
-            clip-path: polygon(0 0, 100% 0, 0 100%);
             background: red;
         }
 
-        .text-inner > * {
-            padding-left: 10px;
-            padding-right: 10px;
+        .text--alt::before {
+            float: left;
+            shape-outside: polygon(calc(var(--side-padding) * -1) 0, calc(100% - var(--side-padding)) 0, calc(var(--side-padding) * -1) 100%);
+            clip-path: polygon(calc(var(--side-padding) * -1) 0, calc(100% - var(--side-padding)) 0, calc(var(--side-padding) * -1) 100%);
+        }
+
+        .text-inner {
+            margin: 80px var(--side-padding) 0;
         }
     </style>
 </head>
 <body>
-<div class="wrapper">
-    <main>
+<main>
+    <div class="wrapper">
         <div class="text">
             <div class="text-inner">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis fuga maiores rerum odio doloremque
-                    architecto neque aliquam consequuntur quo! Ipsam sunt aspernatur, autem cum similique perferendis itaque
-                    ad repellat maiores. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam, aut beatae! Rerum
-                    illum voluptatibus autem sit est necessitatibus iste laborum, dolor incidunt tempora accusantium.
-                    Corrupti veritatis sunt veniam dignissimos soluta quaerat voluptatem ipsum repudiandae quibusdam animi
-                    nobis officiis earum cum minima laudantium adipisci explicabo aut, maxime enim doloremque nihil quasi
-                    inventore atque. Exercitationem beatae adipisci, aperiam eius voluptatum nam vel optio iste unde porro
-                    tenetur tempore cumque illum in id quia fugiat nostrum distinctio quibusdam quidem molestiae ipsa esse
-                    facilis? Quam, molestiae possimus aspernatur fugiat velit ex nemo nobis aliquid, ipsam aperiam beatae
-                    sit asperiores, commodi culpa ratione adipisci iure saepe itaque voluptas mollitia sint dicta minus.
-                    Veritatis sunt minus doloribus, natus illum placeat exercitationem nostrum eum ipsa deleniti sed.</p>
-                <p>Possimus provident, blanditiis accusantium cum dolorum cumque animi neque necessitatibus. Nobis quibusdam
-                    voluptatibus porro necessitatibus, aut nesciunt ipsam corporis atque ducimus dicta delectus, perferendis
-                    reprehenderit laboriosam quas, ipsa quo accusamus?</p>
-                <p>Necessitatibus nemo laboriosam fugit aut, unde reiciendis modi adipisci quo porro corrupti ea enim
-                    sapiente blanditiis, quas iste! Quae perferendis hic voluptate aut dolorum quasi quo similique vero quia
-                    iusto. END.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid deleniti ea excepturi maxime
+                    quibusdam quidem rerum tenetur vitae. Alias atque corporis enim eum harum ratione repudiandae saepe
+                    vero! Minus, porro? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci autem
+                    corporis deleniti dolor dolorum eos, esse excepturi, fuga fugiat hic impedit, ipsum maiores maxime
+                    necessitatibus quisquam sequi soluta voluptates! Consequuntur id, ipsam iusto necessitatibus quia
+                    quos repudiandae temporibus. Ab alias aut deleniti deserunt distinctio dolor eos error esse eum
+                    impedit itaque maxime modi officia officiis omnis pariatur praesentium quidem, quod rem repellendus
+                    sed sunt tempora unde vel vitae! Accusantium dolore eligendi ipsa ipsum iure minus nobis non
+                    provident, repellendus. Sed!</p>
+                <p>Adipisci est expedita laboriosam magni praesentium quibusdam, sed sequi suscipit? Aliquid aut commodi
+                    consequatur distinctio in ipsum natus repudiandae vero voluptates. Adipisci corporis esse ex laborum
+                    repudiandae rerum sit voluptas.</p>
+                <p>A facere, inventore laboriosam quibusdam reiciendis sapiente. A excepturi explicabo illum iste iure
+                    laborum libero, minima non obcaecati pariatur placeat quidem, repellat repellendus, reprehenderit
+                    saepe similique totam vel veniam vitae?</p>
+                <p>Dolore fugiat in odio perferendis quaerat! Deleniti odit quidem quisquam. Accusamus architecto cumque
+                    dicta dignissimos dolores ducimus earum enim error illo maxime nemo nobis, obcaecati quaerat quasi,
+                    quidem sequi voluptas? END!</p>
             </div>
         </div>
-    </main>
-    <script type="module">
-        const wrapper = document.querySelector(".wrapper");
-        let height = wrapper.offsetHeight;
+    </div>
+    <hr>
+    <div class="wrapper">
+        <div class="text text--alt">
+            <div class="text-inner">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid deleniti ea excepturi maxime
+                    quibusdam quidem rerum tenetur vitae. Alias atque corporis enim eum harum ratione repudiandae saepe
+                    vero! Minus, porro? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci autem
+                    corporis deleniti dolor dolorum eos, esse excepturi, fuga fugiat hic impedit, ipsum maiores maxime
+                    necessitatibus quisquam sequi soluta voluptates! Consequuntur id, ipsam iusto necessitatibus quia
+                    quos repudiandae temporibus. Ab alias aut deleniti deserunt distinctio dolor eos error esse eum
+                    impedit itaque maxime modi officia officiis omnis pariatur praesentium quidem, quod rem repellendus
+                    sed sunt tempora unde vel vitae! Accusantium dolore eligendi ipsa ipsum iure minus nobis non
+                    provident, repellendus. Sed!</p>
+                <p>Adipisci est expedita laboriosam magni praesentium quibusdam, sed sequi suscipit? Aliquid aut commodi
+                    consequatur distinctio in ipsum natus repudiandae vero voluptates. Adipisci corporis esse ex laborum
+                    repudiandae rerum sit voluptas.</p>
+                <p>A facere, inventore laboriosam quibusdam reiciendis sapiente. A excepturi explicabo illum iste iure
+                    laborum libero, minima non obcaecati pariatur placeat quidem, repellat repellendus, reprehenderit
+                    saepe similique totam vel veniam vitae?</p>
+                <p>Dolore fugiat in odio perferendis quaerat! Deleniti odit quidem quisquam. Accusamus architecto cumque
+                    dicta dignissimos dolores ducimus earum enim error illo maxime nemo nobis, obcaecati quaerat quasi,
+                    quidem sequi voluptas? END!</p>
+            </div>
+        </div>
+    </div>
+</main>
+<script type="module">
+    document.querySelectorAll(".wrapper").forEach(wrapper => {
+        let count = 0;
+        let height = wrapper.scrollHeight;
         wrapper.style.setProperty("--wrapper-height", height + "px");
 
         function minHeight() {
-            height = wrapper.scrollHeight - 10;
-            while (wrapper.scrollHeight > height) {
-                height++;
-                console.log('calc');
+            height = wrapper.offsetHeight;
+            do {
+                height = height + 10;
                 wrapper.style.setProperty("--wrapper-height", height + "px");
-            }
+                count++;
+
+                if (height > 8000) {
+                    console.log('abort');
+                    break;
+                }
+            } while (wrapper.scrollHeight > height);
+            console.log('height: ', height);
+            console.log('count: ', count);
         }
 
-        minHeight();
-
         let resizeTimeout;
+
         function resize(e) {
             clearTimeout(resizeTimeout);
             resizeTimeout = setTimeout(() => {
@@ -102,7 +152,7 @@
 
         window.addEventListener("resize", resize);
         window.addEventListener("DOMContentLoaded", resize);
-    </script>
-</div>
+    });
+</script>
 </body>
 </html>
