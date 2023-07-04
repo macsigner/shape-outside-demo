@@ -18,11 +18,11 @@
         }
 
         .wrapper {
+            overflow: hidden;
             position: relative;
             display: flex;
-            flex-direction: column;
+            resize: horizontal;
             height: var(--wrapper-height, auto);
-            min-height: calc(100vh - 40px);
         }
 
         .wrapper::after {
@@ -42,22 +42,20 @@
             clear: both;
         }
 
-        .text::before {
+        .shape {
             float: right;
-            content: '';
-            display: block;
             width: 100%;
             height: var(--wrapper-height, 100%);
             shape-margin: 10px;
-            shape-outside: polygon(100% 0%, 100% 100%, 0 100%);
-            clip-path: polygon(100% 0%, 100% 100%, 0 100%);
+            shape-outside: polygon(100% 0%, 100% 100%, 0 100%, 50% 50%);
+            clip-path: polygon(100% 0%, 100% 100%, 0 100%, 50% 50%);
             background: red;
         }
 
-        .text--alt::before {
+        .text--alt .shape {
             float: left;
-            shape-outside: polygon(calc(var(--side-padding) * -1) 0, calc(100% - var(--side-padding)) 0, calc(var(--side-padding) * -1) 100%);
-            clip-path: polygon(calc(var(--side-padding) * -1) 0, calc(100% - var(--side-padding)) 0, calc(var(--side-padding) * -1) 100%);
+            shape-outside: polygon(0% 0%, 100% 0, 50% 50%, 0 100%);
+            clip-path: polygon(0% 0%, 100% 0, 50% 50%, 0 100%);
         }
 
         .text-inner {
@@ -69,7 +67,24 @@
 <main>
     <div class="wrapper">
         <div class="text">
+            <div class="shape"></div>
             <div class="text-inner">
+                <p>a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+                    a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+                    a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+                    a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+                    a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+                    a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+                    a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+                    a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+                    a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+                    a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+                    a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+                    a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+                    a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+                    a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+                    a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+                    a a a a a a a a a a a a a a a a a </p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid deleniti ea excepturi maxime
                     quibusdam quidem rerum tenetur vitae. Alias atque corporis enim eum harum ratione repudiandae saepe
                     vero! Minus, porro? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci autem
@@ -94,7 +109,24 @@
     <hr>
     <div class="wrapper">
         <div class="text text--alt">
+            <div class="shape"></div>
             <div class="text-inner">
+                <p>a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+                    a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+                    a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+                    a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+                    a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+                    a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+                    a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+                    a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+                    a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+                    a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+                    a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+                    a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+                    a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+                    a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+                    a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+                    a a a a a a a a a a a a a a a a a </p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid deleniti ea excepturi maxime
                     quibusdam quidem rerum tenetur vitae. Alias atque corporis enim eum harum ratione repudiandae saepe
                     vero! Minus, porro? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci autem
@@ -118,41 +150,49 @@
     </div>
 </main>
 <script type="module">
-    document.querySelectorAll(".wrapper").forEach(wrapper => {
-        let count = 0;
-        let height = wrapper.scrollHeight;
-        wrapper.style.setProperty("--wrapper-height", height + "px");
+    console.log(CSS.supports('--var: 10px'));
+    if (CSS.supports && CSS.supports('--var: 10px')) {
+        console.log('in')
+        document.querySelectorAll(".wrapper").forEach(wrapper => {
+            let height = wrapper.scrollHeight;
+            wrapper.style.setProperty("--wrapper-height", height + "px");
 
-        function minHeight() {
-            height = wrapper.offsetHeight;
-            do {
-                height = height + 10;
-                wrapper.style.setProperty("--wrapper-height", height + "px");
-                count++;
+            function minHeight() {
+                let count = 0;
+                height = wrapper.scrollHeight;
+                const parent = wrapper.parentNode;
 
-                if (height > 8000) {
-                    console.log('abort');
-                    break;
-                }
-            } while (wrapper.scrollHeight > height);
-            console.log('height: ', height);
-            console.log('count: ', count);
-        }
+                do {
+                    height = Math.ceil(wrapper.scrollHeight) + 10;
+                    wrapper.style.setProperty("--wrapper-height", height + "px");
+                    count++;
 
-        let resizeTimeout;
+                    if (count > 50) {
+                        console.log('abort');
+                        break;
+                    }
+                    console.log(Math.ceil(wrapper.scrollHeight));
+                    console.log(Math.ceil(wrapper.offsetHeight));
+                } while (Math.ceil(wrapper.scrollHeight) > Math.ceil(wrapper.offsetHeight));
+                console.log('height: ', height);
+                console.log('count: ', count);
+            }
 
-        function resize(e) {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(() => {
-                height = 0;
-                wrapper.style.setProperty("--wrapper-height", height + 'px');
-                minHeight();
-            }, 800);
-        }
+            let resizeTimeout;
 
-        window.addEventListener("resize", resize);
-        window.addEventListener("DOMContentLoaded", resize);
-    });
+            function resize(e) {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    height = 0;
+                    wrapper.style.setProperty("--wrapper-height", height + 'px');
+                    minHeight();
+                }, 800);
+            }
+
+            window.addEventListener("resize", resize);
+            window.addEventListener("DOMContentLoaded", resize);
+        });
+    }
 </script>
 </body>
 </html>
