@@ -148,9 +148,7 @@
     </div>
 </main>
 <script type="module">
-    console.log(CSS.supports('--var: 10px'));
     if (CSS.supports && CSS.supports('--var: 10px')) {
-        console.log('in')
         document.querySelectorAll(".wrapper").forEach(wrapper => {
             let height = wrapper.scrollHeight;
             wrapper.style.setProperty("--wrapper-height", height + "px");
